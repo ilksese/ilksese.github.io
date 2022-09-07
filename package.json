@@ -23,7 +23,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
-    "deploy-github": "gh-pages -d build -b master -r https://github.com/ryuuhub/ryuuhub.github.io.git",
+    "deploy-github": "gh-pages -d build -b master -r https://github.com/ilksese/ilksese.github.io.git",
     "deploy-gitee": "gh-pages -d build -b master -r https://gitee.com/spry/spry.gitee.io.git"
   },
   "eslintConfig": {
