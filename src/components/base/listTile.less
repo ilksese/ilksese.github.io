@@ -1,0 +1,100 @@
+@import '../../assets/styles/mixins.less';
+.list-tile {
+    margin: 0 22px;
+    padding: 15px 18px;
+    display: flex;
+    align-items: center;
+    &:hover.yellow .icon-leading{
+        background: rgba(248,198,48,0.1);
+    }
+    &:hover.green .icon-leading {
+        background: rgba(116,196,186,0.1);
+    }
+    &:hover.purple .icon-leading {
+        background: rgba(114,78,145,0.1);
+    }
+    &:hover.red .icon-leading {
+        background: rgba(229,79,109,0.1);
+    }
+    .icon-leading {
+        margin-right: 16px;
+        width: 36px;
+        height: 36px;
+        border-radius: 6px;
+        display: flex;
+        background-color: #f8f8f8;
+        color: #0D0C22;
+        justify-content: center;
+        align-items: center;
+        transition: color 200ms ease;
+        svg {
+            width: 20px;
+            height: 20px;
+        }
+    }
+    .text-wrap {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        max-width: 75%;
+        flex-grow: 1;
+        .title-text {
+            display: flex;
+            align-items: center;
+            color: #0d0c22;
+            font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 14px;
+            font-weight: bolder;
+            line-height: 20px;
+            min-height: 20px;
+        }
+        .desc-text {
+            margin-top: 4px;
+            color: #6e6d7a;
+            font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 16px;
+            min-height: 16px;
+        }
+    }
+    .icon-tail-warp {
+        display: flex;
+        align-items: center;
+        svg {
+            height: 12px;
+            width: 0;
+            visibility: hidden;
+            opacity: 0;
+            transition: visibility 200ms linear, opacity 150ms linear, width 200ms ease-in;
+        }
+    }
+    &:hover .icon-tail-warp {
+        svg {
+            height: 12px;
+            width: 12px;
+            visibility: visible;
+            opacity: 1;
+        }
+    }
+    &:hover.yellow .icon-tail-warp{
+        svg {
+            color: #f8c630;
+        }
+    }
+    &:hover.green .icon-tail-warp {
+        svg {
+            color: #74c4ba;
+        }
+    }
+    &:hover.purple .icon-tail-warp {
+        svg {
+            color: #724e91;
+        }
+    }
+    &:hover.red .icon-tail-warp {
+        svg {
+            color: #e54f6d;
+        }
+    }
+}

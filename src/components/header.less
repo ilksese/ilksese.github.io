@@ -1,0 +1,62 @@
+@import "../assets/styles/variable";
+
+.header {
+  height: @header-height;
+  text-align: center;
+  background-color: @header-color;
+  padding: 0 24px;
+  display: flex;
+  flex-direction: row;
+  box-shadow:
+          2.8px 2.8px 2.2px rgba(0, 0, 0, 0.02),
+          6.7px 6.7px 5.3px rgba(0, 0, 0, 0.028),
+          12.5px 12.5px 10px rgba(0, 0, 0, 0.035),
+          22.3px 22.3px 17.9px rgba(0, 0, 0, 0.042),
+          41.8px 41.8px 33.4px rgba(0, 0, 0, 0.05),
+          100px 100px 80px rgba(0, 0, 0, 0.07);
+  .logo-text {
+    font-family: "ZCOOL Addict Italic 02", serif;
+    font-size: 36px;
+    width: 92px;
+    margin-right: 20px;
+    line-height: @header-height;
+  }
+  .site-nav {
+    display: flex;
+    flex-direction: row;
+    li {
+      position: relative;
+      display: inherit;
+      flex-wrap: nowrap;
+      align-items: center;
+      padding: 30px 6px;
+      transition: color 200ms ease;
+      a {
+        color: #6e6d7a;
+        font-size: 14px;
+        font-weight: bolder;
+        cursor: pointer;
+      }
+      &:hover a {
+        color: #0d0c22;
+      }
+      &:hover .site-nav-hover-menu {
+        visibility: visible;
+        opacity: 1;
+      }
+      .site-nav-hover-menu {
+        visibility: hidden;
+        opacity: 0;
+        position: absolute;
+        top: 85%;
+        left: -28px;
+        border-radius: 12px;
+        background-color: @header-color;
+        box-shadow: 0 10px 70px rgb(0 0 0 / 15%);
+        padding: 16px 0;
+        width: 400px;
+        transition: visibility 200ms linear, opacity 150ms linear;
+      }
+    }
+  }
+}
