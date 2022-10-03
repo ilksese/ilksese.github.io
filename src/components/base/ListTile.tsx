@@ -23,7 +23,7 @@ type ListTileState = {
 }
 export default class ListTile extends PureComponent<ListTileProps, ListTileState> {
     static defaultProps: Partial<ListTileProps> = {
-        leadingStyle: {background: '#f8f8f8', hover: '#f8f8f8'},
+        leadingStyle: {background: '#f8f8f8', hover: '#DCFEFA52'},
         tailStyle: {},
     };
     constructor(props: ListTileProps) {
@@ -34,9 +34,9 @@ export default class ListTile extends PureComponent<ListTileProps, ListTileState
     }
     render() {
         const { leading, tail, leadingStyle, tailStyle } = this.props;
-        const cpLeading:SVG = React.cloneElement(leading || <BlocksIcon />, leadingStyle);
+        const cpLeading:SVG | React.ReactElement = React.cloneElement(leading || <BlocksIcon />, leadingStyle);
         tailStyle!.iconWarpClassName ??= 'icon-tail-warp';
-        const cpTail:SVG = React.cloneElement(tail || <RightIcon />, tailStyle);
+        const cpTail:SVG = React.cloneElement(tail || <RightIcon fill='#74c4ba'/>, tailStyle);
         return (
             <a href={this.props.link}
             className={classNames('list-tile', this.props.className)}
