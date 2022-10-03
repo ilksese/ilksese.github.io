@@ -24,7 +24,6 @@
       "src/*": ["./src/*"],
       "@/*": ["./src/*"],
       "~/*": ["./*"],
-      "@test": ["./src/assets/styles/common"]
     }
   },
   "include": [
