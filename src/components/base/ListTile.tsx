@@ -22,14 +22,14 @@ type ListTileState = {
     leadingHoverBackground?: string;
 }
 export default class ListTile extends PureComponent<ListTileProps, ListTileState> {
-    public static defaultProps: Partial<ListTileProps> = {
+    static defaultProps: Partial<ListTileProps> = {
         leadingStyle: {background: '#f8f8f8', hover: '#f8f8f8'},
         tailStyle: {},
     };
     constructor(props: ListTileProps) {
         super(props);
         this.state = {
-            leadingBackground: this.props.leadingStyle!.background,
+            leadingBackground: this.props.leadingStyle?.background,
         };
     }
     render() {
@@ -41,8 +41,8 @@ export default class ListTile extends PureComponent<ListTileProps, ListTileState
             <a href={this.props.link}
             className={classNames('list-tile', this.props.className)}
             style={this.props.style}
-            onMouseEnter={() => {this.setState({leadingBackground: this.props.leadingStyle!.hover})}}
-            onMouseLeave={() => {this.setState({leadingBackground: this.props.leadingStyle!.background})}}
+            onMouseEnter={() => {this.setState({leadingBackground: this.props.leadingStyle?.hover})}}
+            onMouseLeave={() => {this.setState({leadingBackground: this.props.leadingStyle?.background})}}
             >
                 <div className='icon-leading' style={{ background: this.state.leadingBackground }}>
                     { cpLeading }

@@ -31,6 +31,7 @@ class Header extends Component {
                             />
                             <ListTile
                                 title='Discovers'
+                                className='yellow'
                                 leading={<WorksIcon />}
                                 leadingStyle={{hover: "rgba(248,198,48,0.1)"}}
                                 desc='Learn product design in just 16 weeks...'
@@ -54,11 +55,11 @@ class Header extends Component {
                         <a href="#!">释放</a>
                         <div className='site-nav-hover-menu'>
                             <ListTile
+                                className='red'
                                 title="酱紫"
                                 desc='yysy, qs'
                                 leading={<PacManIcon />}
                                 leadingStyle={{hover: "rgba(238, 136, 126, 0.1)"}}
-                                tailStyle={{fill: '#74c4ba'}}
                             />
                         </div>
                     </li>
