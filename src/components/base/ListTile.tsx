@@ -1,57 +1,70 @@
-import React, { PureComponent } from 'react';
+import React, {CSSProperties, PureComponent} from 'react';
 import classNames from 'classnames';
-import BlocksIcon from './icons/BlocksIcon';
 import RightIcon from './icons/RigthIcon';
-import { IconProps, SVG } from './icons/intereface';
 import './listTile.less'
+import DefaultIcon from "@/components/base/icons/DefaultIcon";
 
 interface ListTileProps {
     readonly key?: string | number;
     leading?: React.ReactElement;
-    leadingStyle?: IconProps;
+    leadingWarpProps?: {
+        style?: CSSProperties & {hover?: string},
+        className?: string,
+    },
     tail?: React.ReactElement;
-    tailStyle?: IconProps;
+    tailWarpProps?: {
+        style?: CSSProperties,
+        className?: string,
+    };
     title: string | React.ReactNode;
     desc?: string | React.ReactNode;
     className?: string;
     link?: string;
-    style?: React.CSSProperties;
+    style?: CSSProperties;
 }
 type ListTileState = {
-    leadingBackground?: string;
-    leadingHoverBackground?: string;
+    warpColor?: any;
+    hoverWarpColor?: any;
 }
 export default class ListTile extends PureComponent<ListTileProps, ListTileState> {
-    static defaultProps: Partial<ListTileProps> = {
-        leadingStyle: {background: '#f8f8f8', hover: '#DCFEFA52'},
-        tailStyle: {},
+    public static defaultProps: Partial<ListTileProps> = {
+        leading: <DefaultIcon />,
+        tail: <RightIcon fill='#d4237a' />,
+        leadingWarpProps: {
+            style: {
+                background: '#f8f8f8',
+                hover: '#DCFEFA52',
+            }
+        },
+        tailWarpProps: {},
+        title: 'Title',
+        desc: 'to be or not to be'
     };
     constructor(props: ListTileProps) {
         super(props);
         this.state = {
-            leadingBackground: this.props.leadingStyle?.background,
+            warpColor: props.leadingWarpProps?.style?.background,
         };
     }
     render() {
-        const { leading, tail, leadingStyle, tailStyle } = this.props;
-        const cpLeading:SVG | React.ReactElement = React.cloneElement(leading || <BlocksIcon />, leadingStyle);
-        tailStyle!.iconWarpClassName ??= 'icon-tail-warp';
-        const cpTail:SVG = React.cloneElement(tail || <RightIcon fill='#74c4ba'/>, tailStyle);
+        const { link, style, className, leading, tail, leadingWarpProps, tailWarpProps, title, desc } = this.props;
         return (
-            <a href={this.props.link}
-            className={classNames('list-tile', this.props.className)}
-            style={this.props.style}
-            onMouseEnter={() => {this.setState({leadingBackground: this.props.leadingStyle?.hover})}}
-            onMouseLeave={() => {this.setState({leadingBackground: this.props.leadingStyle?.background})}}
+            <a href={link}
+            className={classNames('list-tile', className)}
+            style={style}
+            onMouseEnter={() => {this.setState({warpColor: leadingWarpProps?.style?.hover})}}
+            onMouseLeave={() => {this.setState({warpColor: leadingWarpProps?.style?.background})}}
             >
-                <div className='icon-leading' style={{ background: this.state.leadingBackground }}>
-                    { cpLeading }
+                <div className={classNames('list-tile-leading', leadingWarpProps?.className)} style={Object.assign({ background: this.state.warpColor }, leadingWarpProps?.style)}>
+                    { leading }
                 </div>
                 <div className='text-wrap'>
-                    <div className='title-text'>{this.props.title || ""}</div>
-                    <p className='desc-text two-line'>{this.props.desc || ""}</p>
+                    <div className='title-text'>{title}</div>
+                    <p className='desc-text two-line'>{desc}</p>
                 </div>
-                {cpTail}
+                <div className={classNames('list-tile-tail', tailWarpProps?.className)} style={tailWarpProps?.style}>
+                    { tail }
+                </div>
             </a>
         )
     }

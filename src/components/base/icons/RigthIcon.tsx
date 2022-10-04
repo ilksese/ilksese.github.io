@@ -3,6 +3,6 @@ import Icon from "./Icon";
 
 export default class RightIcon extends Icon {
     render() {
-        return <Icon {...this.props} svg={<RightSvg />} />;
+        return <Icon {...this.props} svg={<RightSvg fill='#000' />} />;
     }
 }

@@ -4,6 +4,7 @@ import RightIcon from './base/icons/RigthIcon';
 import WorksIcon from './base/icons/WorksIcon';
 import ListTile from './base/ListTile';
 import './header.less'
+import BlogIcon from "./base/icons/BlogIcon";
 
 class Header extends Component {
     render() {
@@ -17,25 +18,23 @@ class Header extends Component {
                             <ListTile
                                 title='Discovers'
                                 leading={<WorksIcon />}
-                                leadingStyle={{hover: "rgba(248,198,48,0.1)"}}
+                                leadingWarpProps={{style: {hover: "rgba(248,198,48,0.1)"}}}
                                 desc='Learn product design in just 16 weeks...'
-                                tail={<RightIcon />}
-                                tailStyle={{fill: '#f8c630'}}
+                                tail={<RightIcon fill="#f8c630" />}
                             />
                             <ListTile
                                 title='Discovers'
                                 leading={<WorksIcon />}
-                                leadingStyle={{hover: "rgba(248,198,48,0.1)"}}
+                                leadingWarpProps={{style: {hover: "rgba(248,198,48,0.1)"}}}
                                 desc='Learn product design in just 16 weeks...'
-                                tailStyle={{fill: '#f8c630'}}
+                                tail={<RightIcon fill="#f8c630" />}
                             />
                             <ListTile
                                 title='Discovers'
-                                className='yellow'
                                 leading={<WorksIcon />}
-                                leadingStyle={{hover: "rgba(248,198,48,0.1)"}}
+                                leadingWarpProps={{style: {hover: "rgba(248,198,48,0.1)"}}}
                                 desc='Learn product design in just 16 weeks...'
-                                tailStyle={{fill: '#f8c630'}}
+                                tail={<RightIcon fill="#f8c630" />}
                             />
                         </div>
                     </li>
@@ -48,7 +47,7 @@ class Header extends Component {
                     <li>
                         <a href="#!">闲言</a>
                         <div className='site-nav-hover-menu'>
-                            <ListTile title="Blog" desc="Mybe blog" tailStyle={{hover: '#74c4ba'}}/>
+                            <ListTile title="Blog" desc="Maybe blog" leading={<BlogIcon />} tail={<RightIcon fill='#FF6500'/>}/>
                         </div>
                     </li>
                     <li>
@@ -58,8 +57,8 @@ class Header extends Component {
                                 title="酱紫"
                                 desc='yysy, qs'
                                 leading={<PacManIcon />}
-                                leadingStyle={{hover: "rgba(238, 136, 126, 0.1)"}}
-                                tailStyle={{fill: '#e54f6d'}}
+                                leadingWarpProps={{style: {hover: "rgba(238, 136, 126, 0.1)"}}}
+                                tail={<RightIcon fill='#e54f6d' />}
                             />
                         </div>
                     </li>
