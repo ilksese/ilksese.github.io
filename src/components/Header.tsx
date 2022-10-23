@@ -1,22 +1,25 @@
-import {Component} from 'react';
+import {PureComponent} from 'react';
 import PacManIcon from './base/icons/PacManIcon';
 import RightIcon from './base/icons/RigthIcon';
 import WorksIcon from './base/icons/WorksIcon';
 import ListTile from './base/ListTile';
 import './header.less'
 import BlogIcon from "./base/icons/BlogIcon";
+import { Link } from 'react-router-dom';
 
-class Header extends Component {
+
+class Header extends PureComponent {
     render() {
         return (
-            <div className='header'>
-                <div className="logo-text">ilksese</div>
+            <header className='header'>
+                <Link className="logo-text" to="/">ilksese</Link>
                 <ul className="site-nav">
                     <li>
-                        <a href="#!">灵感</a>
+                        <a href="#">灵感</a>
                         <div className='site-nav-hover-menu'>
                             <ListTile
-                                title='Discovers'
+                                link='/components'
+                                title='Components'
                                 leading={<WorksIcon />}
                                 leadingWarpProps={{style: {hover: "rgba(248,198,48,0.1)"}}}
                                 desc='Learn product design in just 16 weeks...'
@@ -39,19 +42,19 @@ class Header extends Component {
                         </div>
                     </li>
                     <li>
-                        <a href="#!">收获</a>
+                        <a href="#">收获</a>
                         <div className='site-nav-hover-menu'>
                             <ListTile title="收获" />
                         </div>
                     </li>
                     <li>
-                        <a href="#!">闲言</a>
+                        <a href="#">闲言</a>
                         <div className='site-nav-hover-menu'>
                             <ListTile title="Blog" desc="Maybe blog" leading={<BlogIcon />} tail={<RightIcon fill='#FF6500'/>}/>
                         </div>
                     </li>
                     <li>
-                        <a href="#!">释放</a>
+                        <a href="#">释放</a>
                         <div className='site-nav-hover-menu'>
                             <ListTile
                                 title="酱紫"
@@ -63,13 +66,13 @@ class Header extends Component {
                         </div>
                     </li>
                     <li>
-                        <a href="#!">口袋</a>
+                        <a href="#">口袋</a>
                         <div className='site-nav-hover-menu'>
                             <ListTile title="口袋" />
                         </div>
                     </li>
                 </ul>
-            </div>
+            </header>
         );
     }
 }

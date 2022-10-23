@@ -1,0 +1,143 @@
+#rect-approval-process {
+    margin-left: 30px;
+    display: flex;
+    flex-direction: column;
+}
+#rect-approval-process > .top-node-wrap, #rect-approval-process > .bottom-node-wrap {
+    flex: 1;
+    min-height: 70px;
+    min-width: 497px;
+    max-height: 130px;
+    display: flex;
+    flex-direction: row;
+}
+#rect-approval-process .node {
+    position: relative;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#rect-approval-process .node > .border {
+    position: absolute;
+    top: 0px;
+    width: 50%;
+    height: 0px;
+    border-top: 1px #999 dashed;
+}
+#rect-approval-process .node > .top-left-border {
+    left: 0px;
+}
+
+#rect-approval-process .node > .top-right-border {
+    right: 0px;
+}
+#rect-approval-process .node > .details {
+    position: relative;
+    max-width: 300px;
+    overflow: hidden;
+    cursor: pointer;
+}
+#rect-approval-process .node > .details > div {
+    display: flex;
+    justify-content: center;
+}
+#rect-approval-process .node > .details > .view {
+    text-overflow: ellipsis;
+    word-break: break-all;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-align: start;
+}
+
+/* 实心圆 */
+#rect-approval-process .node::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #999;
+    transform: translate(-50%, -50%);
+}
+#rect-approval-process .node.active-node::after {
+    background-color: #FF6600;
+}
+/* 开始节点 */
+#rect-approval-process .start-node {
+    align-items: flex-start;
+    border-top: 1px #999 dashed;
+    border-left: 1px #999 dashed;
+    border-bottom: none;
+    border-right: none;
+}
+#rect-approval-process .start-node.active-node.active-top-border {
+    border-top: 1px #FF6600 dashed;
+}
+#rect-approval-process .start-node.active-node.active-left-border {
+    border-left: 1px #FF6600 dashed;
+}
+#rect-approval-process .start-node > .details {
+    transform: translate(-50%, 0px);
+    z-index: 1;
+}
+#rect-approval-process .node.start-node::after {
+    left: 0;
+    z-index: 1;
+}
+#rect-approval-process .node.start-node > .details > div:last-child {
+    background: #fff;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+}
+/* 审批节点 */
+#rect-approval-process .approval-node.active-node.active-top-left-border  > .top-left-border {
+    border-top: 1px #FF6600 dashed;
+}
+#rect-approval-process .approval-node.active-node.active-top-right-border > .top-right-border {
+    border-top: 1px #FF6600 dashed;
+}
+/* 结束节点 */
+#rect-approval-process .end-node {
+    align-items: flex-end;
+    border-top: 1px #999 dashed;
+    border-right: 1px #999 dashed;
+}
+#rect-approval-process .end-node.active-node.active-top-border {
+    border-top: 1px #FF6600 dashed;
+}
+#rect-approval-process .end-node.active-node.active-right-border {
+    border-right: 1px #FF6600 dashed;
+}
+#rect-approval-process .end-node > .details {
+    transform: translate(50%, 0px);
+}
+#rect-approval-process .node.end-node::after {
+    left: 100%;
+    z-index: 1;
+}
+#rect-approval-process .node.end-node > .details > div:last-child {
+    background: #fff;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+}
+/* 否决节点 */
+#rect-approval-process .vote-node {
+    align-items: center;
+}
+#rect-approval-process .vote-node.active-node.active-top-right-border > .top-left-border {
+    border-top: 1px #FF6600 dashed;
+}
+#rect-approval-process .vote-node.active-node.active-top-right-border > .top-right-border {
+    border-top: 1px #FF6600 dashed;
+}

@@ -1,4 +1,5 @@
 @import "variable";
+@import "mixins";
 
 @font-face {
   font-family: "ZCOOL Addict Italic 02";
@@ -15,13 +16,39 @@ ul, ol {
 a {
   text-decoration: none;
 }
+p, input[type='button'], button {
+  outline: none;
+}
 body {
   background-color: rgb(41, 40, 40);
 }
+
 .center {
+  .center()
+}
+
+.flex {
   display: flex;
-  justify-content: center;
-  align-items: center;
+}
+
+.flex-center {
+  &:extend(.flex, .center);
+}
+
+.flex-center-row {
+  &:extend(.flex-center, .row);
+}
+
+.flex-center-column {
+  &:extend(.flex-center, .column);
+}
+
+.flex-row {
+  &:extend(.flex, .row);
+}
+
+.flex-column {
+  &:extend(.flex, .column);
 }
 
 .column {
@@ -34,25 +61,56 @@ body {
   flex-direction: row;
 }
 
-.two-line {
+.grid {
+  display: grid;
+}
+
+.grid-center {
+  &:extend(.grid);
+  place-items: center;
+}
+
+.grid-1-3 {
+  &:extend(.grid);
+  grid-template-rows: 1fr;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.inherit-w {
   width: inherit;
+}
+.inherit-h {
+  height: inherit;
+}
+
+.one-line {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-align: start;
+}
+.two-line {
+  max-width: inherit;
   text-overflow: ellipsis;
   word-break: break-all;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+  text-align: start;
+}
+.three-line {
+  max-width: inherit;
+  text-overflow: ellipsis;
+  word-break: break-all;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-align: start;
 }
 .App {
   width: 100vw;
   height: 100vh;
   background: @app-primary-color;
-}
-
-@media (min-width: 1200px) {
-  .site-nav {
-      li {
-          padding: 30px 16px !important;
-      }
-  }
 }

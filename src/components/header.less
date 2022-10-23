@@ -1,6 +1,10 @@
 @import "../assets/styles/variable";
 
 .header {
+  & > * {
+    z-index: 10;
+  }
+  z-index: 10;
   height: @header-height;
   text-align: center;
   background-color: @header-color;
@@ -57,6 +61,14 @@
         width: 400px;
         transition: visibility 200ms linear, opacity 150ms linear;
       }
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .site-nav {
+    li {
+      padding: 30px 16px !important;
     }
   }
 }

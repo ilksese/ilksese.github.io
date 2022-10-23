@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import RightIcon from './icons/RigthIcon';
 import './listTile.less'
 import DefaultIcon from "@/components/base/icons/DefaultIcon";
+import { Link } from "react-router-dom";
 
 interface ListTileProps {
     readonly key?: string | number;
@@ -49,11 +50,12 @@ export default class ListTile extends PureComponent<ListTileProps, ListTileState
     render() {
         const { link, style, className, leading, tail, leadingWarpProps, tailWarpProps, title, desc } = this.props;
         return (
-            <a href={link}
-            className={classNames('list-tile', className)}
-            style={style}
-            onMouseEnter={() => {this.setState({warpColor: leadingWarpProps?.style?.hover})}}
-            onMouseLeave={() => {this.setState({warpColor: leadingWarpProps?.style?.background})}}
+            <Link
+                to={link ?? ""}
+                className={classNames('list-tile', className)}
+                style={style}
+                onMouseEnter={() => {this.setState({warpColor: leadingWarpProps?.style?.hover})}}
+                onMouseLeave={() => {this.setState({warpColor: leadingWarpProps?.style?.background})}}
             >
                 <div className={classNames('list-tile-leading', leadingWarpProps?.className)} style={Object.assign({ background: this.state.warpColor }, leadingWarpProps?.style)}>
                     { leading }
@@ -65,7 +67,7 @@ export default class ListTile extends PureComponent<ListTileProps, ListTileState
                 <div className={classNames('list-tile-tail', tailWarpProps?.className)} style={tailWarpProps?.style}>
                     { tail }
                 </div>
-            </a>
+            </Link>
         )
     }
 }
