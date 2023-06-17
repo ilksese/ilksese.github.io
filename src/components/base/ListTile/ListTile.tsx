@@ -1,6 +1,6 @@
 import React, {CSSProperties, PureComponent} from 'react';
 import classNames from 'classnames';
-import RightIcon from './icons/RigthIcon';
+import RightIcon from '../icons/RigthIcon';
 import './listTile.less'
 import DefaultIcon from "@/components/base/icons/DefaultIcon";
 import { Link } from "react-router-dom";

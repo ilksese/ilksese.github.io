@@ -1,10 +1,10 @@
 import {PureComponent} from 'react';
-import PacManIcon from './base/icons/PacManIcon';
-import RightIcon from './base/icons/RigthIcon';
-import WorksIcon from './base/icons/WorksIcon';
-import ListTile from './base/ListTile';
+import PacManIcon from '../base/icons/PacManIcon';
+import RightIcon from '../base/icons/RigthIcon';
+import WorksIcon from '../base/icons/WorksIcon';
+import ListTile from '../base/ListTile/ListTile';
 import './header.less'
-import BlogIcon from "./base/icons/BlogIcon";
+import BlogIcon from "../base/icons/BlogIcon";
 import { Link } from 'react-router-dom';
 
 

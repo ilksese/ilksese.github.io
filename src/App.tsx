@@ -1,5 +1,5 @@
-import Header from './components/Header';
-import Time from "./components/Time";
+import Header from './components/Header/Header';
+import Time from "./components/Time/Time";
 import './assets/styles/common.less'
 function App() {
   return (
