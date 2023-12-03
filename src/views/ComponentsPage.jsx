@@ -3,7 +3,7 @@ import './ComponentsPage.less'
 
 import Header from 'src/components/Header/Header';
 import classNames from 'classnames';
-// import Schedule from '../components/Schedule';
+import { FloatPlaceholder } from 'src/components/Input';
 
 export default class ComponentsPage extends Component {
     render() {
@@ -11,7 +11,7 @@ export default class ComponentsPage extends Component {
             <div className="cp-page">
                 <Header />
                 <CpList>
-                    
+                    <FloatPlaceholder placeholder="phone number" />
                 </CpList>
             </div>
         );
